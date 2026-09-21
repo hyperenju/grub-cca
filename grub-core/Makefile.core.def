@@ -917,6 +917,15 @@ module = {
 };
 
 module = {
+  name = linux_realm_earlycon;
+  common = commands/arm64/linux_realm_earlycon.c;
+  common = lib/arm64/cca.c;
+  common = lib/arm64/spcr.c;
+  depends = linux;
+  enable = arm64_efi;
+};
+
+module = {
   name = cat;
   common = commands/cat.c;
 };
