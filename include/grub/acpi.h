@@ -73,7 +73,11 @@ struct grub_acpi_fadt
   grub_uint32_t pmtimer;
   grub_uint8_t somefields3[32];
   grub_uint32_t flags;
-  grub_uint8_t somefields4[16];
+  grub_uint8_t somefields4[13];
+  grub_uint16_t arm_boot_flags;
+#define GRUB_ACPI_FADT_PSCI_COMPLIANT 0x01
+#define GRUB_ACPI_FADT_PSCI_USE_HVC   0x02
+  grub_uint8_t minor_revision;
   grub_uint64_t facs_xaddr;
   grub_uint64_t dsdt_xaddr;
   grub_uint8_t somefields5[96];
@@ -203,6 +207,7 @@ struct grub_acpi_spcr {
 #define GRUB_ACPI_SPCR_INTF_TYPE_16550      0x00
 #define GRUB_ACPI_SPCR_INTF_TYPE_16550_DBGP 0x01
 #define GRUB_ACPI_SPCR_INTF_TYPE_16550_DBG2 0x12
+#define GRUB_ACPI_SPCR_INTF_TYPE_PL011      0x03
   grub_uint8_t reserved_0[3];
   struct grub_acpi_genaddr base_addr;
   grub_uint8_t interrupt_type;
